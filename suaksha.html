@@ -1,0 +1,46 @@
+import React, { useState } from 'react';
+
+const ChatApp = () => {
+  const [messages, setMessages] = useState([
+    { text: "Hey, I need some help with this urgent task!", scam: 'potential' },
+    { text: "Here's my bank info, can you transfer the money?", scam: 'high' },
+    { text: "I'll get back to you after work!", scam: 'safe' },
+  ]);
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white flex justify-center items-center p-6">
+      <div className="w-full max-w-lg bg-slate-800 p-6 rounded-lg shadow-lg">
+        <div className="space-y-4">
+          <h1 className="text-2xl font-bold text-center mb-4">AI Scam Detector</h1>
+          
+          <div className="space-y-3 overflow-y-scroll h-72 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`message p-4 rounded-lg ${
+                  msg.scam === 'high'
+                    ? 'bg-scam-high text-white scam-glow'
+                    : msg.scam === 'potential'
+                    ? 'bg-scam-potential text-black potential-scam-glow'
+                    : 'bg-green-500 text-white'
+                } message-animation`}
+              >
+                <p>{msg.text}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-4">
+            <input
+              type="text"
+              placeholder="Type your message here..."
+              className="w-full p-3 bg-slate-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ChatApp;
