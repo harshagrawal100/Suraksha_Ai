@@ -1,0 +1,33 @@
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}", // Adjust to your project structure
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'slate-950': '#0f172a',          // Dark background color
+        'scam-high': '#b91c1c',          // High scam warning color (red)
+        'scam-potential': '#facc15',     // Potential scam color (yellow)
+      },
+      animation: {
+        'scam-pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',  // Pulse effect for scam warning
+        'scam-glow': 'scamGlow 1.5s ease-in-out infinite',               // Glowing effect for scam warnings
+      },
+      keyframes: {
+        scamGlow: {
+          '0%, 100%': { boxShadow: '0 0 10px rgba(239, 68, 68, 0.6)' },
+          '50%': { boxShadow: '0 0 20px rgba(239, 68, 68, 1)' },
+        },
+      },
+      fontFamily: {
+        mono: ['Fira Mono', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
+      }
+    },
+  },
+  plugins: [
+    require('tailwind-scrollbar'), // Optional for custom scrollbars
+  ],
+};
+
