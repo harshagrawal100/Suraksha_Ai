@@ -1,0 +1,32 @@
+
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@layer utilities {
+  .scam-glow {
+    animation: scamGlow 1.5s ease-in-out infinite;
+  }
+
+  .potential-scam-glow {
+    animation: scamGlow 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+  }
+
+  .message-animation {
+    animation: fadeInUp 0.4s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
